@@ -54,7 +54,11 @@ $myEvents = getRegisteredEventsForUser($userId);
 <?php if (empty($myEvents)): ?>
     <p class="text-center text-gray-600 text-lg">Vous n'êtes inscrit à aucun événement pour le moment.</p>
     <div class="text-center mt-4">
-        <a href="/" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out">Découvrir des événements</a>
+        <a href="/" class="inline-block px-5 py-2 rounded-full text-base font-medium transition-colors group border-[0.5px] shadow-sm shadow-[hsl(var(--always-black)/5.1%)] bg-[#F0EEE5] hover:bg-[#E8E5D8] hover:border-transparent duration-300 ease-in-out">
+            Découvrir des événements<!-- -->&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256" class="inline-block -translate-y-0.5 group-hover:animate-bounce">
+                <path d="M205.66,149.66l-72,72a8,8,0,0,1-11.32,0l-72-72a8,8,0,0,1,11.32-11.32L120,196.69V40a8,8,0,0,1,16,0V196.69l58.34-58.35a8,8,0,0,1,11.32,11.32Z"></path>
+            </svg>
+        </a>
     </div>
 <?php else: ?>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

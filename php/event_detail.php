@@ -73,7 +73,12 @@ $remainingSeats = $event['available_seats'] - $registeredCount;
             <?php elseif ($remainingSeats > 0): ?>
                 <form action="register_event.php" method="POST">
                     <input type="hidden" name="event_id" value="<?php echo htmlspecialchars($event['id']); ?>">
-                    <button type="submit" class="px-5 py-2 rounded-full text-base font-medium transition-colors group border-[0.5px] shadow-sm shadow-[hsl(var(--always-black)/5.1%)] bg-[#F0EEE5] hover:bg-[#E8E5D8] hover:border-transparent duration-300 ease-in-out cursor-pointer">S'inscrire</button>
+                    <button type="submit" class="px-5 py-2 rounded-full text-base font-medium transition-colors group border-[0.5px] shadow-sm shadow-[hsl(var(--always-black)/5.1%)] bg-[#F0EEE5] hover:bg-[#E8E5D8] hover:border-transparent duration-300 ease-in-out cursor-pointer">
+                        S'inscrire<!-- -->&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            viewBox="0 0 256 256" class="inline-block -translate-y-0.5 group-hover:animate-bounce">
+                            <path d="M136 120h56a8 8 0 0 1 0 16h-56v56a8 8 0 0 1-16 0v-56H64a8 8 0 0 1 0-16h56V64a8 8 0 0 1 16 0v56z" />
+                        </svg>
+                    </button>
                 </form>
             <?php else: ?>
                 <p class="text-red-600 font-bold text-lg">Complet !</p>
