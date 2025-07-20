@@ -1,0 +1,38 @@
+services:
+  php:
+    image: php:8.3-apache
+    container_name: events_php
+    ports:
+      - "8102:80"
+    volumes:
+      - ./php:/var/www/html
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+  db:
+    image: postgres:17.5
+    container_name: events_db
+    environment:
+      POSTGRES_PASSWORD: events
+      POSTGRES_USER: events
+      POSTGRES_DB: events_manager
+      PGUSER: events
+      POSTGRES_HOST_AUTH_METHOD: trust
+    volumes:
+      - ./data.sql:/docker-entrypoint-initdb.d/data.sql
+    ports:
+      - "5432:5432"
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: events_pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: events@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+      PGADMIN_CONFIG_SERVER_MODE: "False"
+      PGADMIN_CONFIG_MASTER_PASSWORD_REQUIRED: "False"
+    ports:
+      - "8101:80"
+    volumes:
+      - ./servers.json:/pgadmin4/servers.json
