@@ -2,16 +2,15 @@
 ?>
 </main>
 
-<footer class="bg-[#f5f5dc] py-10 mt-auto">
+<footer class="bg-[#f5f5dc] pt-10 pb-2 mt-auto">
 
     <div class="container flex gap-20 justify-evenly pb-10">
-        <div class="max-w-xl text-justify">
-            <h3 class="text-2xl font-bold mb-6">À propos</h3>
+        <div class="max-w-md text-justify">
+            <h3 class="text-2xl font-bold mb-6">À propos de nous</h3>
             <p>
-                Conçu pour faciliter les rencontres humaines, les initiatives culturelles et les projets professionnels, Eventribe connecte les organisateurs aux publics curieux, enthousiastes et engagés.
-                Que vous soyez artiste, conférencier, formateur, entrepreneur ou simplement amateur de découvertes, Eventribe vous accompagne dans chaque étape : publication d’événements, inscription en ligne, suivi des participants, et bien plus encore.
-                <br>Notre mantra : Accessibilité, créativité et fluidité.
-                <br>Rejoignez la tribu et faites vibrer vos idées à l’échelle locale ou nationale.
+                Eventribe connecte organisateurs et passionnés à travers des rencontres humaines et projets culturels.
+                Que vous soyez artiste, pro ou curieux, la plateforme vous accompagne : création d’événements, inscriptions, suivi et bien plus encore.
+                Notre mantra : accessibilité, créativité, fluidité. <br>Rejoignez la tribu et donnez vie à vos idées !
             </p>
         </div>
         <div>
