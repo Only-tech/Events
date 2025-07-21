@@ -4,27 +4,29 @@ require_once './includes/db_connect.php';
 require_once './includes/event_functions.php';
 require_once './includes/auth_functions.php'; // Pour isUserLoggedIn() et isUserAdmin()
 
-$pageTitle = "Accueil - Événements à venir";
+$pageTitle = "eventribe - Événements à venir";
 include './includes/templates/header.php';
 
 $events = getAllEventsWithRegistrationCount();
 ?>
 
-<h1 class="text-4xl font-extrabold text-gray-900 mb-8 text-center">Événements à venir</h1>
+<h1 class="text-4xl font-extrabold text-gray-900 mb-8 text-center">Découvrez les événements à venir</h1>
 
 <?php if (empty($events)): ?>
     <p class="text-center text-gray-600 text-lg">Aucun événement n'est disponible pour le moment. Revenez plus tard !</p>
 <?php else: ?>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <?php foreach ($events as $event): ?>
-            <div class="bg-[rgb(248,248,236)] rounded-lg shadow-lg overflow-hidden flex flex-col">
-                <?php if (!empty($event['image_url'])): ?>
-                    <img src="<?php echo htmlspecialchars($event['image_url']); ?>" alt="Image de l'événement <?php echo htmlspecialchars($event['title']); ?>" class="w-full h-48 object-cover rounded-t-lg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/E0E0E0/333333?text=Image+non+disponible';">
-                <?php else: ?>
-                    <div class="w-full h-48 bg-gray-200 flex items-center justify-center text-gray-500 text-lg rounded-t-lg">
-                        [Image de l'événement non disponible]
-                    </div>
-                <?php endif; ?>
+            <div class="bg-[rgb(248,248,236)] rounded-lg shadow-lg overflow-hidden flex flex-col group hover:shadow-2xl" data-aos="fade-up">
+                <div class="w-full h-48 overflow-hidden xl:h-80">
+                    <?php if (!empty($event['image_url'])): ?>
+                        <img src=" <?php echo htmlspecialchars($event['image_url']); ?>" alt="Image de l'événement <?php echo htmlspecialchars($event['title']); ?>" class="w-full h-48 xl:h-80 object-cover rounded-t-lg group-hover:scale-110 transition duration-500 ease-in-out group-hover:rotate-1" onerror="this.onerror=null;this.src='https://placehold.co/600x400/E0E0E0/333333?text=Image+non+disponible';">
+                    <?php else: ?>
+                        <div class="w-full h-48 bg-gray-200 flex items-center justify-center text-gray-500 text-lg rounded-t-lg">
+                            [Image de l'événement non disponible]
+                        </div>
+                    <?php endif; ?>
+                </div>
                 <div class="p-4 md:p-6 flex-grow flex flex-col">
                     <h2 class="text-2xl font-bold text-gray-900 mb-2"><?php echo htmlspecialchars($event['title']); ?></h2>
                     <p class="text-gray-600 text-sm mb-2">

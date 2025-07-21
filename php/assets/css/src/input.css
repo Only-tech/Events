@@ -1,1 +1,84 @@
 @import "tailwindcss";
+
+/* scroll to top bouton */
+#scrollTopBtn {
+    position: fixed;
+    background-color: transparent;
+    z-index: 1000;
+    bottom: 2em;
+    right: 2em;
+    width: 3em;
+    height: 3em;
+    border: 2px #111827 solid;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s ease-in-out, fill 0.3s ease, color 0.3s ease-in-out;
+    animation: moveButton 3s infinite;
+}
+
+#scrollTopBtn:hover {
+    opacity: 1 !important;
+    animation: none;
+}
+
+#scrollTopBtn:active {
+    transform: scale(0.9);
+}
+
+@keyframes moveButton {
+
+    0%,
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    50% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    60% {
+        opacity: 0;
+    }
+}
+
+
+/* info bulle */
+[data-title] {
+    position: relative;
+}
+
+[data-title]::after {
+    content: attr(data-title);
+    position: absolute;
+    bottom: -2.2em;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 0.4em 0.7em;
+    transform: translateX(-30%);
+    font-family: "montserrat-regular";
+    font-size: 0.8rem !important;
+    font-weight: 500;
+    border-radius: 1.5em;
+    white-space: nowrap;
+    display: none;
+    border: 1px whitesmoke solid;
+}
+
+/* #home[data-title]::after {
+    transform: translateX(-27%) !important;
+    bottom: -1.5em !important;
+} */
+
+#scrollTopBtn[data-title]::after {
+    transform: translateX(-20%);
+    bottom: 3.6em !important;
+}
+
+[data-title]:hover::after {
+    display: block !important;
+}
