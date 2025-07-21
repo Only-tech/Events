@@ -91,7 +91,7 @@ $users = getAllUsers();
                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                             <form action="manage_users.php" method="POST" class="inline-block" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer l\'utilisateur <?php echo htmlspecialchars($user['username']); ?> ?');">
                                 <input type="hidden" name="user_id" value="<?php echo htmlspecialchars($user['id']); ?>">
-                                <button type="submit" name="delete_user" class="text-red-600 hover:text-red-900  border-1 rounded-[9999px] px-2.5 pb-1 pt-0.5 shadow-lg h-7">Supprimer</button>
+                                <button type="submit" name="delete_user" class="text-red-600 hover:text-red-900  border-1 rounded-full bg-white hover:bg-amber-50 px-2.5 pb-1 pt-0.5 shadow-lg h-7">Supprimer</button>
                             </form>
                         </td>
                     </tr>
@@ -100,5 +100,9 @@ $users = getAllUsers();
         </table>
     </div>
 <?php endif; ?>
+
+<div class="mt-10">
+    <a href="/admin/index.php" class="px-5 py-2 rounded-full text-base text-[#FFF] hover:text-gray-800 font-medium transition-colors border-[0.5px] border-transparent shadow-sm shadow-[hsl(var(--always-black)/5.1%)] bg-gray-800 hover:bg-[#FFF] hover:border-gray-800 cursor-pointer duration-300 ease-in-out">Retour</a>
+</div>
 
 <?php include 'templates/footer.php'; ?>

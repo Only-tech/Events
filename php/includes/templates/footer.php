@@ -27,6 +27,8 @@
                     <li><a href="/login.php" class="hover:text-[#ff952aff] transition duration-300">Connexion</a></li>
                     <li><a href="/register.php" class="hover:text-[#ff952aff] transition duration-300">Inscription</a></li>
                 <?php endif; ?>
+                <li><a href="/includes/legal_mentions.php" class="hover:text-[#ff952aff] transition duration-300">Mentions Légales</a></li>
+                <li><a href="/includes/legal_mentions.php#politique-confidentialite" class="hover:text-[#ff952aff] transition duration-300">Politique de Confidentialité</a></li>
             </ul>
         </div>
         <div class=" [@media(max-width:849px)]:order-2  [@media(max-width:849px)]:justify-center mx-auto">
@@ -81,7 +83,7 @@
         </div>
     </div>
     <div class="text-center text-sm">
-        Cédrick &copy; <?php echo date('Y'); ?> eventribe.All rights reserved.
+        Cédrick &copy; <?php echo date('Y'); ?> eventribe. All rights reserved.
     </div>
 </footer>
 

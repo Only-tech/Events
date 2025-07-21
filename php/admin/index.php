@@ -3,12 +3,11 @@ require_once 'admin_guard.php';
 
 require_once '../includes/db_connect.php';
 require_once '../includes/auth_functions.php';
-// require_once '../includes/user_functions.php';
 require_once '../includes/event_functions.php';
 
 
 
-$pageTitle = "Tableau de bord Admin";
+$pageTitle = "eventribe - Tableau de bord Admin";
 include './templates/header.php';
 
 // Les nombres totales d'événements, d'utilisateurs et d'inscriptions
@@ -42,17 +41,17 @@ function countUsers()
     </div>
 </div>
 
-<div class="bg-white rounded-lg shadow-lg p-6">
+<div class=" bg-white rounded-lg shadow-lg p-6">
     <h2 class="text-2xl font-bold text-gray-900 mb-4">Actions Administrateur</h2>
     <ul class="space-y-4">
         <li>
-            <a href=" manage_events.php" class="font-semibold text-lg text-indigo-700 hover:text-indigo-900 border-2 rounded-[9999px] px-4 p-2 shadow-lg transition duration-300 ease-in-out w-full block text-center">
+            <a href=" manage_events.php" class="px-5 py-2 rounded-full text-xl text-[#FFF] hover:text-gray-800 font-medium transition-colors border-[0.5px] border-transparent shadow-sm shadow-[hsl(var(--always-black)/5.1%)] bg-gray-800 hover:bg-amber-50 hover:border-gray-800 cursor-pointer duration-300 ease-in-out w-full block text-center">
                 Gérer les Événements (Créer, Modifier, Supprimer)
             </a>
         </li>
         <li>
-            <a href="manage_registrations.php" class="font-semibold text-lg text-indigo-700 hover:text-indigo-900 border-2 rounded-[9999px] px-4 p-2 shadow-lg transition duration-300 ease-in-out w-full block text-center">
-                Gérer les Inscriptions (Voir les participants)
+            <a href="manage_registrations.php" class="px-5 py-2 rounded-full text-xl text-[#FFF] hover:text-gray-800 font-medium transition-colors border-[0.5px] border-transparent shadow-sm shadow-[hsl(var(--always-black)/5.1%)] bg-gray-800 hover:bg-amber-50 hover:border-gray-800 cursor-pointer duration-300 ease-in-out w-full block text-center">
+                Gérer les Inscriptions (Voir les participants, Désinscrire)
             </a>
         </li>
     </ul>

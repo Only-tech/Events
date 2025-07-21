@@ -37,8 +37,8 @@ $events = getAllEventsWithRegistrationCount();
 <?php else: ?>
     <div class="grid grid-cols-1 2xl:grid-cols-2 gap-10">
         <?php foreach ($events as $event): ?>
-            <div class="max-w-4xl w-full bg-white rounded-lg shadow-lg p-4 md:p-6 mx-auto">
-                <h2 class="text-2xl font-bold text-gray-900 mb-4">
+            <div class="max-w-4xl w-full bg-white rounded-lg shadow-lg p-4 md:p-6 mx-auto" data-aos="fade-up">
+                <h2 class=" text-2xl font-bold text-gray-900 mb-4">
                     <?php echo htmlspecialchars($event['title']); ?> <!-- Évènement -->
                     <span class="text-gray-500 text-base">(<?php echo htmlspecialchars($event['registered_count']); ?> inscrits)</span>
                 </h2>
@@ -69,7 +69,7 @@ $events = getAllEventsWithRegistrationCount();
                                             <form action="manage_registrations.php" method="POST" class="inline-block" onsubmit="return confirm('Êtes-vous sûr de vouloir désinscrire <?php echo htmlspecialchars($participant['username']); ?> de cet événement ?');">
                                                 <input type="hidden" name="user_id" value="<?php echo htmlspecialchars($participant['user_id']); ?>">
                                                 <input type="hidden" name="event_id" value="<?php echo htmlspecialchars($event['id']); ?>">
-                                                <button type="submit" name="unregister_participant" class="text-red-600 hover:text-red-900  border-1 rounded-[9999px] px-2.5 pb-1 pt-0.5 shadow-lg h-7">Désinscrire</button>
+                                                <button type="submit" name="unregister_participant" class="text-red-600 hover:text-red-900  border-1 rounded-full bg-white hover:bg-amber-50 px-2.5 pb-1 pt-0.5 shadow-lg h-7">Désinscrire</button>
                                             </form>
                                         </td>
                                     </tr>
@@ -82,5 +82,9 @@ $events = getAllEventsWithRegistrationCount();
         <?php endforeach; ?>
     </div>
 <?php endif; ?>
+
+<div class="mt-10">
+    <a href="/admin/index.php" class="px-5 py-2 rounded-full text-base text-[#FFF] hover:text-gray-800 font-medium transition-colors border-[0.5px] border-transparent shadow-sm shadow-[hsl(var(--always-black)/5.1%)] bg-gray-800 hover:bg-[#FFF] hover:border-gray-800 cursor-pointer duration-300 ease-in-out">Retour</a>
+</div>
 
 <?php include './templates/footer.php'; ?>

@@ -24,77 +24,28 @@ window.addEventListener("scroll", () => {
   lastScrollY = currentScrollY;
 });
 
-// const burgerMenu = document.querySelector(".burger_menu");
-const mobileMenu = document.querySelector(".navbar_menu"); // Assurez-vous que cette sélection est correcte pour votre menu mobile
+const menuToggle = document.getElementById("burgerBtn");
+const mobileMenu = document.querySelector(".mobile-menu");
+const cellMenu = document.querySelector(".cell-menu");
 
-// if (burgerMenu) {
-//     burgerMenu.addEventListener("click", () => {
-//         mobileMenu.classList.toggle("open");
-//     });
-// }
-
-document
-  .getElementById("explore_contact")
-  .addEventListener("click", function () {
-    let target = document.querySelector(this.getAttribute("data-target"));
-
-    if (target) {
-      window.scrollTo({
-        top: target.offsetTop,
-        behavior: "smooth",
-      });
-      // if (mobileMenu.classList.contains("open")) { // Ferme le menu mobile après le clic
-      //     mobileMenu.classList.remove("open");
-      // }
-    }
-  });
-
-document
-  .getElementById("explore_projects")
-  .addEventListener("click", function () {
-    let target = document.querySelector(this.getAttribute("data-target"));
-
-    if (target) {
-      window.scrollTo({
-        top: target.offsetTop,
-        behavior: "smooth",
-      });
-    }
-  });
-
-document.getElementById("home").addEventListener("click", function () {
-  let target = document.querySelector(this.getAttribute("data-target"));
-
-  if (target) {
-    window.scrollTo({
-      top: target.offsetTop,
-      behavior: "smooth",
-    });
-  }
+menuToggle.addEventListener("click", () => {
+    mobileMenu.classList.toggle("open");
+    cellMenu.classList.toggle("open");
 });
 
-document
-  .getElementById("logo_Portfolio")
-  .addEventListener("click", function () {
-    let target = document.querySelector(this.getAttribute("data-target"));
 
-    if (target) {
-      window.scrollTo({
-        top: target.offsetTop,
-        behavior: "smooth",
-      });
-    }
-  });
 
-document
-  .getElementById("logo_Portfolio_footer")
-  .addEventListener("click", function () {
-    let target = document.querySelector(this.getAttribute("data-target"));
 
-    if (target) {
-      window.scrollTo({
-        top: target.offsetTop,
-        behavior: "smooth",
-      });
-    }
-  });
+
+// document.getElementById("home").addEventListener("click", function () {
+//   let target = document.querySelector(this.getAttribute("data-target"));
+
+//   if (target) {
+//     window.scrollTo({
+//       top: target.offsetTop,
+//       behavior: "smooth",
+//     });
+//   }
+// });
+
+

@@ -7,10 +7,18 @@ require_once './includes/auth_functions.php'; // Pour isUserLoggedIn() et isUser
 $pageTitle = "eventribe - Événements à venir";
 include './includes/templates/header.php';
 
-$events = getAllEventsWithRegistrationCount();
+$searchTerm = $_GET['search'] ?? '';
+
+if (!empty($searchTerm)) {
+    $events = searchEvents($searchTerm);
+} else {
+    $events = getAllEventsWithRegistrationCount();
+}
 ?>
 
-<h1 class="text-4xl font-extrabold text-gray-900 mb-8 text-center">Découvrez les événements à venir</h1>
+<h1 class="text-4xl font-extrabold text-gray-900 mb-8 text-center">
+    <?php echo !empty($searchTerm) ? 'Résultats de recherche pour "' . htmlspecialchars($searchTerm) . '"' : 'Découvrez les événements à venir'; ?>
+</h1>
 
 <?php if (empty($events)): ?>
     <p class="text-center text-gray-600 text-lg">Aucun événement n'est disponible pour le moment. Revenez plus tard !</p>

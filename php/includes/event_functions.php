@@ -284,3 +284,43 @@ function countRegistrations()
     $stmt = $pdo->query("SELECT COUNT(*) FROM registrations");
     return (int) $stmt->fetchColumn();
 }
+
+
+/**
+ * Recherche des événements par titre ou description.
+ * @param string $searchTerm Le terme de recherche.
+ * @return array Liste des événements correspondants avec le nombre d'inscrits.
+ */
+function searchEvents($searchTerm)
+{
+    global $pdo;
+    try {
+        $searchTerm = '%' . $searchTerm . '%';
+        $stmt = $pdo->prepare("
+            SELECT
+                e.id,
+                e.title,
+                e.event_date,
+                e.location,
+                e.description_short,
+                e.available_seats,
+                e.image_url,
+                COUNT(r.id) AS registered_count
+            FROM
+                events e
+            LEFT JOIN
+                registrations r ON e.id = r.event_id
+            WHERE
+                e.title ILIKE :searchTerm OR e.description_short ILIKE :searchTerm OR e.description_long ILIKE :searchTerm
+            GROUP BY
+                e.id, e.title, e.event_date, e.location, e.description_short, e.available_seats, e.image_url
+            ORDER BY
+                e.event_date ASC
+        ");
+        $stmt->execute(['searchTerm' => $searchTerm]);
+        return $stmt->fetchAll();
+    } catch (PDOException $e) {
+        error_log("Erreur lors de la recherche d'événements : " . $e->getMessage());
+        return [];
+    }
+}

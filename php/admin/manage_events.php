@@ -185,10 +185,10 @@ include './templates/header.php';
             <div class="mb-6">
                 <img id="preview" src="#" class="w-full h-48 object-cover rounded-lg">
             </div>
-            <button type="submit" name="create_event" class="font-bold text-lg text-indigo-700 hover:text-indigo-900 border-2 rounded-[9999px] px-4 p-2 shadow-lg transition duration-300 ease-in-out w-full cursor-pointer">Créer l'événement</button>
+            <button type="submit" name="create_event" class="font-bold text-lg text-[#347fd4] hover:text-indigo-900 border-2 rounded-full bg-white hover:bg-amber-50 px-4 p-2 shadow-lg transition duration-300 ease-in-out w-full cursor-pointer">Créer l'événement</button>
         </form>
         <div class="mt-4 text-center">
-            <a href="manage_events.php" class="font-bold text-red-600 hover:text-red-900 border-1 rounded-[9999px] px-4 py-2 shadow-lg transition duration-300 ease-in-out">Annuler</a>
+            <a href="manage_events.php" class="font-bold text-red-600 hover:text-red-900 border-1 rounded-full bg-white hover:bg-amber-50 px-4 py-2 shadow-lg transition duration-300 ease-in-out">Annuler</a>
         </div>
     </div>
 
@@ -204,7 +204,7 @@ include './templates/header.php';
     <!-- Formulaire modification événement -->
     <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-lg">
         <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">Modifier l'événement : <?php echo htmlspecialchars($event['title']); ?></h2>
-        <form action="manage_events.php" method="POST" enctype="multipart/form-data"> <!-- Ajout de enctype -->
+        <form action="manage_events.php" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="event_id" value="<?php echo htmlspecialchars($event['id']); ?>">
             <div class="mb-4">
                 <label for="title" class="block text-sm font-medium text-gray-700">Évènement :</label>
@@ -243,17 +243,17 @@ include './templates/header.php';
                     <img id="current-image" src="/<?php echo ltrim(htmlspecialchars($event['image_url']), '/'); ?>" alt="Image de l'événement <?php echo htmlspecialchars($event['title']); ?>" class="w-full h-48 object-cover rounded-lg">
                 </div>
             <?php endif; ?>
-            <button type="submit" name="update_event" class="font-bold text-lg text-indigo-700 hover:text-indigo-900 border-2 rounded-[9999px] px-4 p-2 shadow-lg transition duration-300 ease-in-out w-full cursor-pointer">Mettre à jour l'événement</button>
+            <button type="submit" name="update_event" class="font-bold text-lg text-[#347fd4] hover:text-indigo-900 border-2 rounded-full bg-white hover:bg-amber-50 px-4 p-2 shadow-lg transition duration-300 ease-in-out w-full cursor-pointer">Mettre à jour l'événement</button>
         </form>
         <div class="mt-4 text-center">
-            <a href="manage_events.php" class="font-bold text-red-600 hover:text-red-900 border-1 rounded-[9999px] px-4 py-2 shadow-lg transition duration-300 ease-in-out">Annuler</a>
+            <a href="manage_events.php" class="font-bold text-red-600 hover:text-red-900 border-1 rounded-full bg-white hover:bg-amber-50 px-4 py-2 shadow-lg transition duration-300 ease-in-out">Annuler</a>
         </div>
     </div>
 
 <?php else: // Affiche la liste des événements 
 ?>
     <div class="mb-6 text-right">
-        <a href="manage_events.php?action=create" class="font-semibold text-lg text-indigo-700 hover:text-indigo-900 border-2 rounded-[9999px] px-4 p-2 shadow-lg transition duration-300 ease-in-out">Créer un nouvel événement</a>
+        <a href="manage_events.php?action=create" class="px-5 py-2 rounded-full text-xl text-[#FFF] hover:text-gray-800 font-medium transition-colors border-[0.5px] border-transparent shadow-sm shadow-[hsl(var(--always-black)/5.1%)] bg-gray-800 hover:bg-amber-50 hover:border-gray-800 cursor-pointer duration-300 ease-in-out">Créer un nouvel événement</a>
     </div>
 
     <?php
@@ -282,10 +282,10 @@ include './templates/header.php';
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><?php echo htmlspecialchars($event['available_seats']); ?></td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><?php echo htmlspecialchars($event['registered_count']); ?></td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                <a href="manage_events.php?action=edit&id=<?php echo htmlspecialchars($event['id']); ?>" class="text-indigo-600 hover:text-indigo-900 border-1 rounded-[9999px] px-4 pb-1 pt-1 shadow-lg h-7 mr-4">Modifier</a>
+                                <a href="manage_events.php?action=edit&id=<?php echo htmlspecialchars($event['id']); ?>" class="text-[#4A90E2] hover:text-indigo-900 border-1 rounded-full bg-white hover:bg-amber-50 px-4 pb-1 pt-1 shadow-lg h-7 mr-4">Modifier</a>
                                 <form action="manage_events.php" method="POST" class="inline-block" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cet événement ? Toutes les inscriptions associées seront également supprimées.');">
                                     <input type="hidden" name="event_id" value="<?php echo htmlspecialchars($event['id']); ?>">
-                                    <button type="submit" name="delete_event" class="text-red-600 hover:text-red-900 border-1 rounded-[9999px] px-2.5 pb-1 pt-0.5 shadow-lg h-7 cursor-pointer">Supprimer</button>
+                                    <button type="submit" name="delete_event" class="text-red-600 hover:text-red-900 border-1 rounded-full bg-white hover:bg-amber-50 px-2.5 pb-1 pt-0.5 shadow-lg h-7 cursor-pointer">Supprimer</button>
                                 </form>
                             </td>
                         </tr>
@@ -295,5 +295,9 @@ include './templates/header.php';
         </div>
     <?php endif; ?>
 <?php endif; ?>
+
+<div class="mt-10">
+    <a href="/admin/index.php" class="px-5 py-2 rounded-full text-base text-[#FFF] hover:text-gray-800 font-medium transition-colors border-[0.5px] border-transparent shadow-sm shadow-[hsl(var(--always-black)/5.1%)] bg-gray-800 hover:bg-[#FFF] hover:border-gray-800 cursor-pointer duration-300 ease-in-out">Retour</a>
+</div>
 
 <?php include './templates/footer.php'; ?>

@@ -41,6 +41,7 @@
 │ └── admin/ # Interface d'administration (back-office)
 | │ ├── index.php # Dashboard admin
 │ | ├── manage_events.php # Gestion CRUD des événements
+│ | ├── admin_guard.php # Verification en plus
 │ | ├── manage_users.php # Gestion des utilisateurs
 │ | ├── manage_registrations.php # Gestion des inscriptions
 │ | └── templates/ # Templates spécifiques à l'admin
@@ -50,10 +51,17 @@
 │ | ├── db_connect.php # Connexion à la base de données
 │ | ├── auth_functions.php # Fonctions d'authentification et de gestion des utilisateurs
 │ | ├── event_functions.php # Fonctions de gestion des événements
-│ | ├── user_functions.php # Fonctions de gestion des utilisateurs
+│ | ├── legal_mentions.php # Mentions légales et politique de confidentialité
 │ | └── templates/ # Templates généraux
 │ | |   ├── header.php
 │ | |   └── footer.php
+| ├── assets/
+│ | ├── css/
+│ | |   └── src/
+│ | ├── js/
+│ | ├── img/
+│ | └── uploads/
+
 ```
 
 ---
@@ -257,4 +265,10 @@ Cette JOIN combine les informations des utilisateurs avec leurs inscriptions pou
 
 - Gestion des messages d'erreurs et de succès : $\_SESSION['message'] pour les messages flash.
 
+- Recherche d'un événement via la barre de recherche
+
+---
+
 ## Credit
+
+Cédrick
