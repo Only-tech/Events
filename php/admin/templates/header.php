@@ -20,7 +20,7 @@ require_once '../includes/auth_functions.php';
     <link rel="icon" type="image/svg+xml" href="/assets/img/adminWhite-logo.svg">
 </head>
 
-<body class="min-h-screen w-full flex flex-col text-[#333] bg-[#f4f7f6] font-['Inter', sans-serif]"
+<body class="min-h-screen w-full flex flex-col text-[#333] bg-[#f4f7f6] font-['Inter', sans-serif] lateralScrollBar"
     style="background-image: url('/assets/img/SplashPaint.svg'); background-repeat: no-repeat; background-position: center; background-size: cover; background-attachment: fixed;">
     <header class="fixed flex flex-row justify-between items-center z-10000 w-full bg-gray-900 text-white shadow-lg transition-opacity duration-500 py-4 px-[5%]">
         <a href="/admin/index.php" class="relative w-[55px] h-[55px] group" data-title="Administration">

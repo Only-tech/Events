@@ -1,6 +1,6 @@
-# Application Web de Gestion d'Événements Eventribe
+# Application Web de Gestion d'Événements → eventribe
 
-**Eventribe** permet de gérer des événements avec un front-office (s'inscrire et se désinscrire d'un événement) pour les visiteurs et un back-office (ajouter, modifier, supprimer un événement, désinscrire des participants d'un événement, consulter les statistiques de participations) pour l'administration.
+**eventribe** (𝘳𝘢𝘴𝘴𝘦𝘮𝘣𝘭𝘦 𝘥𝘦𝘴 𝘱𝘦𝘳𝘴𝘰𝘯𝘯𝘦𝘴 𝘱𝘢𝘳𝘵𝘢𝘨𝘦𝘢𝘯𝘵 𝘥𝘦𝘴 𝘤𝘦𝘯𝘵𝘳𝘦𝘴 𝘥'𝘪𝘯𝘵é𝘳ê𝘵𝘴 𝘤𝘰𝘮𝘮𝘶𝘯𝘴) permet de gérer des événements avec un front-office (créer un compte, s'inscrire et se désinscrire d'un événement) pour les visiteurs et un back-office (ajouter, afficher, modifier, supprimer un événement → 𝐂𝐑𝐔𝐃, désinscrire des participants d'un événement, consulter les statistiques de participations, changer le statut d'un utilisateur en administrateur) pour l'administration.
 
 ---
 
