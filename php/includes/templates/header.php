@@ -82,7 +82,7 @@ if (session_status() == PHP_SESSION_NONE) {
                     <li><a href="/register.php" class="hover:text-[#ff952aff] transition duration-300">Inscription</a></li>
                 <?php endif; ?>
             </ul>
-            <button id="burgerBtn" class="flex justify-end text-4xl [@media(min-width:840px)]:[display:none] [@media(min-width:840px)]:order-3 [@media(max-width:499px)]:order-2" data-title="Menu">☰</button>
+            <button id="burgerBtn" class="flex justify-end text-4xl [@media(min-width:840px)]:[display:none] [@media(min-width:439px)]:order-3 [@media(max-width:438px)]:order-2" data-title="Menu">☰</button>
         </nav>
     </header>
 
@@ -98,7 +98,7 @@ if (session_status() == PHP_SESSION_NONE) {
         ?>
 
         <!-- ---------------scroll top button------------------ -->
-        <button id="scrollTopBtn" data-title="Aller en Haut" class="group">
+        <button id="scrollTopBtn" data-title="Retour en Haut" class="group">
             <svg width="1.7em" height="1.7em" viewBox="34 -7.5 80 80" xmlns="http://www.w3.org/2000/svg">
                 <path d="M 38 24 L 38 36 L 74 15 L 110 36 L 110 24 L 74 2 L 38 24 Z" fill="#ff952aff" class="group-hover:fill-[#111827]" />
                 <path d="M 46 53 L 46 63 L 74 45 L 102 63 L 102 53 L 74 33 L 46 53 Z" fill="#111827" class="group-hover:fill-[#ff952aff]" />

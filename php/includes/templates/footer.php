@@ -54,23 +54,76 @@
             </button>
 
             <!-- Modale -->
-            <div id="contactModal" class="fixed [@media(max-width:449px)]:max-w-[320px] inset-0 bg-black/50 flex items-center justify-center z-50 hidden">
+            <div id="contactModal" class="fixed w-full inset-0 bg-black/50 flex items-center justify-center z-50 hidden">
                 <div class="bg-[rgb(248,248,236)] rounded-lg shadow-lg p-6 w-full max-w-md relative group">
-                    <button onclick="document.getElementById('contactModal').classList.add('hidden')" class="fixed top-4 right-4 text-gray-500 hover:text-[#ff952aff] text-2xl font-bold hover:animate-pulse transform duration-300 ease-in-out" data-title="Quitter">&times;</button>
-
-                    <h2 class="text-xl text-gray-900 text-center font-semibold mb-4">Contactez-nous</h2>
-                    <form id="contact-form" class="grid gap-4">
+                    <button onclick="document.getElementById('contactModal').classList.add('hidden')" class="top-[-1rem] left-[100%] text-gray-500 hover:text-[#ff952aff] text-2xl font-bold hover:animate-pulse transform duration-300 ease-in-out" data-title="Quitter">&times;</button>
+                    <h2 class="text-xl text-gray-900 text-center font-semibold mb-4 mt-[-2.5rem]">Contactez-nous</h2>
+                    <form action="/send_email.php" method="post" class="grid gap-4" id="contactForm">
                         <input type="text" name="name" placeholder="Votre nom | Votre organisation" class="w-[260px] border p-2  border-gray-300 rounded-full shadow-sm focus:outline-none focus:ring-[#ff952aff] focus:border-[#ff952aff]" required>
-                        <textarea name="message" rows="4" placeholder="Votre message" class="border p-2 resize-none  border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#ff952aff] focus:border-[#ff952aff] w-full [@media(max-width:449px)]:w-[300px]" required></textarea>
+                        <textarea name="message" rows="4" placeholder="Votre message" class="border p-2 resize-none  border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#ff952aff] focus:border-[#ff952aff] w-full" required></textarea>
                         <div class="flex gap-4 justify-end [@media(max-width:449px)]:flex-col">
                             <input type="email" name="email" placeholder="Votre email" class="border p-2 border-gray-300 rounded-full shadow-sm focus:outline-none focus:ring-[#ff952aff] focus:border-[#ff952aff]" required>
-                            <button type="submit" class="px-5 py-2 rounded-full text-base font-medium transition-colors group border-[0.5px] shadow-sm shadow-[hsl(var(--always-black)/5.1%)] bg-[#F0EEE5] hover:bg-[#E8E5D8] hover:border-transparent duration-300 ease-in-out cursor-pointer">
+                            <button type="submit" id="submitButton" class="px-5 py-2 rounded-full text-base font-medium transition-colors group border-[0.5px] shadow-sm shadow-[hsl(var(--always-black)/5.1%)] bg-[#F0EEE5] hover:bg-[#E8E5D8] hover:border-transparent duration-300 ease-in-out cursor-pointer">
                                 Envoyer<!-- -->&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256" class="inline-block -translate-y-0.5 group-hover:animate-bounce">
                                     <path d="M205.66,149.66l-72,72a8,8,0,0,1-11.32,0l-72-72a8,8,0,0,1,11.32-11.32L120,196.69V40a8,8,0,0,1,16,0V196.69l58.34-58.35a8,8,0,0,1,11.32,11.32Z"></path>
                                 </svg>
                             </button>
                         </div>
+                        <!-- Message statut -->
+                        <?php
+                        if (isset($_GET['status'])) {
+                            if ($_GET['status'] === 'success') {
+                                echo '<p id="form-status-message" class="text-green-800 bg-green-100 p-4 rounded-lg text-center"> Message envoyé avec succès !</p>';
+                            } elseif ($_GET['status'] === 'error') {
+                                echo '<p id="form-status-message" class="text-red-800 bg-red-100 p-4 rounded-lg text-center"> Une erreur est survenue. Veuillez réessayer.</p>';
+                            }
+                        }
+                        ?>
+                        <div class="items-center flex flex-col">
+                            <div id="loading-spinner" class="hidden mt-4">
+                                <svg width="40" height="40" viewBox="0 0 50 50">
+                                    <circle cx="25" cy="25" r="20" stroke="#ff952aff" stroke-width="5" fill="none" stroke-linecap="round" stroke-dasharray="30 70">
+                                        <animateTransform
+                                            attributeName="transform"
+                                            type="rotate"
+                                            repeatCount="indefinite"
+                                            dur="1s"
+                                            from="0 25 25"
+                                            to="360 25 25" />
+                                    </circle>
+                                </svg>
+                            </div>
+                        </div>
                     </form>
+                    <!-- Formulaire opérationnel avec Emailjs -->
+                    <!-- <form id="contact-form" class="grid gap-4">
+                        <input type="text" name="name" placeholder="Votre nom | Votre organisation" class="w-[260px] border p-2  border-gray-300 rounded-full shadow-sm focus:outline-none focus:ring-[#ff952aff] focus:border-[#ff952aff]" required>
+                        <textarea name="message" rows="4" placeholder="Votre message" class="border p-2 resize-none  border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#ff952aff] focus:border-[#ff952aff] w-full" required></textarea>
+                        <div class="flex gap-4 justify-end [@media(max-width:449px)]:flex-col">
+                            <input type="email" name="email" placeholder="Votre email" class="border p-2 border-gray-300 rounded-full shadow-sm focus:outline-none focus:ring-[#ff952aff] focus:border-[#ff952aff]" required>
+                            <button type="submit" class="px-5 py-2 rounded-full text-base font-medium transition-colors group border-[0.5px] shadow-sm shadow-[hsl(var(--always-black)/5.1%)] bg-[#F0EEE5] hover:bg-[#E8E5D8] hover:border-transparent duration-300 ease-in-out cursor-pointer"> -->
+                    <!-- Envoyer &nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256" class="inline-block -translate-y-0.5 group-hover:animate-bounce"> -->
+                    <!-- <path d="M205.66,149.66l-72,72a8,8,0,0,1-11.32,0l-72-72a8,8,0,0,1,11.32-11.32L120,196.69V40a8,8,0,0,1,16,0V196.69l58.34-58.35a8,8,0,0,1,11.32,11.32Z"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="items-center flex flex-col">
+                            <div id="loading-spinner" class="hidden mt-4">
+                                <svg width="40" height="40" viewBox="0 0 50 50">
+                                    <circle cx="25" cy="25" r="20" stroke="#ff952aff" stroke-width="5" fill="none" stroke-linecap="round" stroke-dasharray="30 70">
+                                        <animateTransform
+                                            attributeName="transform"
+                                            type="rotate"
+                                            repeatCount="indefinite"
+                                            dur="1s"
+                                            from="0 25 25"
+                                            to="360 25 25" />
+                                    </circle>
+                                </svg>
+                            </div>
+                            <p id="form-status" class="w-full text-center border-0 mt-4 p-4 rounded-lg"></p>
+                        </div>
+                    </form> -->
                 </div>
             </div>
 
@@ -82,7 +135,7 @@
             </div>
         </div>
     </div>
-    <div class="text-center text-sm">
+    <div class="text-center text-sm [@media(max-width:800px)]:mb-10">
         Cédrick &copy; <?php echo date('Y'); ?> eventribe. All rights reserved.
     </div>
 </footer>
@@ -93,9 +146,9 @@
     AOS.init();
 </script>
 <script src="/assets/js/onTopButton.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-<script src="/assets/js/Email.js"></script>
-
+<!-- <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script src="/assets/js/Email.js"></script> -->
+<script src="/assets/js/sendMail.js"></script>
 </body>
 
 </html>

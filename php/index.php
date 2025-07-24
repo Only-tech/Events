@@ -16,7 +16,7 @@ if (!empty($searchTerm)) {
 }
 ?>
 
-<h1 class="text-4xl font-extrabold text-gray-900 mb-8 text-center">
+<h1 class="text-4xl font-extrabold text-gray-900 mb-8 text-center [@media(max-width:438px)]:mt-8">
     <?php echo !empty($searchTerm) ? 'Résultats de recherche pour "' . htmlspecialchars($searchTerm) . '"' : 'Découvrez les événements à venir'; ?>
 </h1>
 

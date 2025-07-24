@@ -73,7 +73,7 @@ require_once '../includes/auth_functions.php';
 
 
         <!-- ---------------scroll top button------------------ -->
-        <button id="scrollTopBtn" data-title="Aller en Haut" class="group">
+        <button id="scrollTopBtn" data-title="Retour en Haut" class="group">
             <svg width="1.7em" height="1.7em" viewBox="34 -7.5 80 80" xmlns="http://www.w3.org/2000/svg">
                 <path d="M 38 24 L 38 36 L 74 15 L 110 36 L 110 24 L 74 2 L 38 24 Z" fill="#4A90E2" class="group-hover:fill-[#111827]" />
                 <path d="M 46 53 L 46 63 L 74 45 L 102 63 L 102 53 L 74 33 L 46 53 Z" fill="#111827" class="group-hover:fill-[#4A90E2]" />
